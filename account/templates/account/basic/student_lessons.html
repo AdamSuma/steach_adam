@@ -1,0 +1,128 @@
+{% extends 'account/base.html' %}
+
+{% block body %}
+<center>
+<div class="top-bar">
+    {% if sub_class %}
+    <form method='GET' action="{% url 'account:student_lessons' 0 %}">
+        <img src="/media/extra/search.png" style="height:2rem; width:2rem;margin-top:0.5rem;margin-left:1rem;float:left;">
+        <input class="search" name='search' value="{{request.GET.search}}" placeholder="Search for your lesson">
+    </form>
+    {% else %}
+    <form method='GET' action="{% url 'account:student_lessons' 0 %}">
+        <img src="/media/extra/search.png" style="height:2rem; width:2rem;margin-top:0.5rem;margin-left:1rem;float:left;">
+        <input class="search" name='search' value="{{request.GET.search}}" placeholder="Search for your lesson">
+    </form>
+    {% endif %}
+    <div class="dropdownd" style="float:left;">
+        <button onclick="myFunction()" class="dropbtn" style="border-left:0.1rem solid #D2D2D2;border-right:0.1rem solid #D2D2D2;">
+            <div style="height:60%; width:1%; background-color:#D2D2D2; background-color:#{{sub_class.color_code}};float:left;margin-right:-1rem;"></div>
+            {% if sub_class.name %} {{sub_class.name}} {% else %} All Classes {% endif %}
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+                <center><a href="{% url 'account:student_lessons' '0'%}">
+                <div style="height:1.75rem; width:1%; background-color:#D2D2D2; float:left;margin-right:-1rem;"></div>
+                <h1  style="color:#979797; font-size:18px;font-family: 'Source Sans Pro', sans-serif;">All Classes</h1>
+                </a></center>
+                {% for subclass in user.userprofile.main_class.subclass_set.all %}
+                <center><a href="{% url 'account:student_lessons' subclass.id%}">
+                <div style="height:1.75rem; width:1%;background-color:#{{subclass.color_code}};float:left;margin-right:-1rem;"></div>
+                <h1  style="color:#979797; font-size:18px;font-family: 'Source Sans Pro', sans-serif;">{{ subclass.name }}</h1>
+                </a></center>  
+                {% endfor %}
+        </div>  
+    </div>      
+</div>
+</center>
+<div class="lesson-container">
+<br>
+{% for lesson in lessons %}
+    <center>
+    <a href="{% url 'account:student_lesson' lesson.sub_class.id lesson.id%}" style="color:black;">
+    <div class="list-card" style="border-left: 0.1rem solid #DCDCDC;border-left:0.4rem solid #{{lesson.sub_class.color_code}};border-bottom: 1px solid #D2D2D2;">
+        <h1 class="lesson-title" style="margin-bottom:-10rem;">{{lesson.title}}</h1>
+        <h1 class="lesson-subtitle">{{lesson.sub_class.name}}</h1>
+        <h1 class="lesson-subtitle" style="float:right; margin-right:2rem; margin-top:1rem; color:black;">{{lesson.date_added}}</h1>
+    </div>
+    </a>    
+    </center>
+{% endfor %}
+</div>
+<center>
+<div class="pagination" style="background-color:white;width:15rem;height:3.5rem;border-radius: 0.6rem 0.6rem 0.6rem 0.6rem;margin-top:50px;">
+        {% if lessons.has_previous %}
+            <a href="?page=1" style="float:left">
+                <div style="border-radius: 20%;float:left;margin-top:0.75rem;margin-left:1rem;" title="First">
+                    <img class='pagination-button' src="/media/extra/double-previous.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+            <a href="?page={{ lessons.previous_page_number }}" style="float:left">
+                <div style="border-radius: 20%;float:left;margin-top:0.75rem;" title="Previous">
+                    <img class='pagination-button' src="/media/extra/previous.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+        {% else %}
+            <a href="#" style="float:left">
+                <div style="border-radius: 20%;float:left;margin-top:0.75rem;margin-left:1rem;" title="First">
+                    <img class='pagination-button-red' src="/media/extra/double-previous.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+            <a href="#" style="float:left">
+                <div style="border-radius: 20%;float:left;margin-top:0.75rem;" title="Previous">
+                    <img class='pagination-button-red' src="/media/extra/previous.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+        {% endif %}
+
+        <span style="float:left;color:black;margin-left:0.5rem; margin-right:0.5rem;font-family: 'Source Sans Pro', sans-serif;font-size:15px;margin-top:1rem;">
+            Page {{ lessons.number }} / {{ lessons.paginator.num_pages }}
+        </span> 
+
+        {% if lessons.has_next %}
+            <a href="?page={{ lessons.next_page_number }}" style="float:left">
+                <div  style="border-radius: 20%;float:left;margin-top:0.75rem;" title="Next">
+                    <img class='pagination-button' src="/media/extra/next.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+            <a href="?page={{ lessons.paginator.num_pages }}" style="float:left">
+                <div style="border-radius: 20%;float:left;margin-top:0.75rem;" title="Last">
+                    <img class='pagination-button' src="/media/extra/double-next.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+        {% else %}
+            <a href="#" style="float:left">
+                <div  style="border-radius: 20%;float:left;margin-top:0.75rem;" title="Next">
+                    <img class='pagination-button-red' src="/media/extra/next.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+            <a href="#" style="float:left">
+                <div style="border-radius:20%;float:left;margin-top:0.75rem;" title="Last">
+                    <img class='pagination-button-red' src="/media/extra/double-next.png" style="width: 2rem; height:2rem;" />
+                </div>
+            </a>
+        {% endif %}
+</div>
+</center>   
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+   
+</script>
+{% endblock %}

@@ -1,0 +1,193 @@
+.calendar .day-names,
+.calendar .days li {
+    border-bottom: 1px solid #eee
+}
+
+.calendar ol::after,
+.clearfix::after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.calendar {
+    border-radius: 10px
+}
+
+.month {
+    font-size: 2rem
+}
+
+@media (min-width:992px) {
+    .month {
+        font-size: 3.5rem
+    }
+}
+
+.calendar ol li {
+    float: left;
+    width: 14.28571%
+}
+
+.calendar .day-names li {
+    text-transform: uppercase;
+    margin-bottom: .5rem
+}
+
+.calendar .days li {
+    min-height: 8rem
+}
+
+.calendar .days li .date {
+    margin: .5rem 0
+}
+
+.calendar .days li .event {
+    font-size: .75rem;
+    padding: .4rem;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4rem;
+    margin-bottom: 1px
+}
+
+.calendar .days li .event.span-2 {
+    width: 200%
+}
+
+.calendar .days li .event.begin {
+    border-radius: 1rem 0 0 1rem
+}
+
+.calendar .days li .event.end {
+    border-radius: 0 1rem 1rem 0
+}
+
+.calendar .days li:nth-child(n+29) {
+    border-bottom: none
+}
+
+.calendar .days li.outside .date {
+    color: #ddd
+}
+
+.bootstrap_datatables {
+    min-height: 100vh
+}
+
+.container {
+    padding-top: 5px
+}
+
+.row-striped:nth-of-type(odd) {
+    background-color: #efefef;
+    border-left: 10px #cd3333 solid
+}
+
+.row-striped:nth-of-type(even) {
+    background-color: #fff;
+    border-left: 15px #efefef solid
+}
+
+.row-striped {
+    padding: 15px 0;
+    margin-top: 15px
+}
+
+.date-green {
+    background-color: #cd3333
+}
+
+.badge-grey {
+    background-color: #efefef
+}
+
+a.animated-button:link:after,
+a.animated-button:visited:after {
+    content: "";
+    position: absolute;
+    height: 0%;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    z-index: -1;
+    -webkit-transition: all .75s ease 0s;
+    -moz-transition: all .75s ease 0s;
+    -o-transition: all .75s ease 0s;
+    transition: all .75s ease 0s
+}
+
+a.animated-button:link:hover,
+a.animated-button:visited:hover {
+    color: #fff;
+    text-shadow: none
+}
+
+a.animated-button:link:hover:after,
+a.animated-button:visited:hover:after {
+    height: 450%
+}
+
+a.animated-button:link,
+a.animated-button:visited {
+    position: relative;
+    margin: 8px auto 0;
+    padding: 9px 22px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    text-shadow: 0 0 1px rgba(0, 0, 0, .2), 0 1px 0 rgba(0, 0, 0, .2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease
+}
+
+a.animated-button.victoria-one {
+    border: 2px solid #D24D57
+}
+
+a.animated-button.victoria-one:after {
+    background: #D24D57;
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-25deg)
+}
+
+#exampleInputEmail:active,
+#exampleInputPassword:active {
+    background-color: rgba(255, 255, 255, 0)
+}
+
+.dropdown-item:hover {
+    color: #747474!important;
+    background: 0 0
+}
+
+.sidebar .nav-item {
+    font-size: 30px
+}
+
+hr {
+    color: #fff!important
+}
+
+.row.studenti {
+    padding-top: 10px;
+    border-radius: 2rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    box-shadow: 1px 1px 6px #d3d3d3;
+    background: #fff;
+    padding-bottom: 10px
+}
