@@ -14,7 +14,7 @@
     {% endif %}
     <h1 style="text-align:left;font-family: 'Source Sans Pro', sans-serif; font-size: calc(0.5vw + 0.8rem);margin-top:calc(3vw + 3rem);margin-left:2%;color:black;">{{lesson.text|linebreaks}}</h1>
     {% if lesson.pdf %}
-    <center><embed src="{{lesson.pdf.url}}" style="margin-top:2rem;width:80%;height:calc(30vw + 20rem);"/></center>
+    <center><iframe src="{{lesson.pdf.url}}" style="margin-top:2rem;width:80%;height:calc(30vw + 20rem);"></iframe></center>
     <br>
     {% endif %}
 </div>

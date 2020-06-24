@@ -39,7 +39,7 @@
 {% for lesson in lessons %}
     <center>
     <a href="{% url 'account:student_lesson' lesson.sub_class.id lesson.id%}" style="color:black;">
-    <div class="list-card" style="border-left: 0.1rem solid #DCDCDC;border-left:0.4rem solid #{{lesson.sub_class.color_code}};border-bottom: 1px solid #D2D2D2;">
+    <div class="list-card" style="border-left: 0.4rem solid #DCDCDC;border-left:0.4rem solid #{{lesson.sub_class.color_code}};border-bottom: 1px solid #D2D2D2;">
         <h1 class="lesson-title" style="margin-bottom:-10rem;">{{lesson.title}}</h1>
         <h1 class="lesson-subtitle">{{lesson.sub_class.name}}</h1>
         <h1 class="lesson-subtitle" style="float:right; margin-right:2rem; margin-top:1rem; color:black;">{{lesson.date_added}}</h1>
