@@ -3,9 +3,9 @@
 {% block body %}
 <div style="margin-left=3.5rem;float:center;overflow:hidden">
     {% if sub_class %}
-    <div class="lesson-maindiv" style="border-left: 0.5rem solid #{{sub_class.color_code}}; height:100rem; ">
+    <div class="lesson-maindiv" style="border-left: 0.5rem solid #{{sub_class.color_code}};  ">
     {% else %}
-    <div class="lesson-maindiv" style="height:100rem;">
+    <div class="lesson-maindiv" style="">
     {% endif %}
     <h1 class="lesson-title-detail">Calendar</h1>
     <div style="height:0.01rem; width:100%; background-color:#D2D2D2; margin-top:5rem;"></div>
@@ -40,8 +40,8 @@
                 </div>
             </div>
         {% endfor %}
+        <br>
     <!-- </div> -->
-    <br>
     </div>
 </div>
 {% endblock %}

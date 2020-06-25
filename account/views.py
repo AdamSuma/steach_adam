@@ -339,22 +339,23 @@ def student_grades(request, subclass_id):
 
     if subclass_id == '0':
         grades_list = Grade.objects.filter(sub_class__main_class=main_class, student=request.user.userprofile).order_by('-date_added')
+        subclass = None
     else:
-        if SubClass.objects.filter(id=subclass_id):
+        if SubClass.objects.filter(id=subclass_id, main_class=request.user.userprofile.main_class):
             grades_list = Grade.objects.filter(sub_class=SubClass.objects.get(id=subclass_id), student=request.user.userprofile).order_by('-date_added')
+            subclass = SubClass.objects.get(id=subclass_id)
         else:
             return redirect('account:student_home')
     if search_input:
         grades_list = grades_list.filter(Q(value__icontains=search_input) | Q(date_added__icontains=search_input) | Q(sub_class__name__icontains=search_input))
         return render(request, template_name, context={'grades': grades_list, 'subclass_id': subclass_id})
-        print(grades_list)
 
     paginator = Paginator(grades_list, 48)
 
     page = request.GET.get('page')
     grades = paginator.get_page(page)
 
-    return render(request, template_name, context={'grades': grades, 'subclass_id': subclass_id})
+    return render(request, template_name, context={'grades': grades, 'subclass': subclass, 'subclass_id': subclass_id})
 
 
 @login_required

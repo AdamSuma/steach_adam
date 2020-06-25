@@ -312,22 +312,20 @@ body {
 }
 
 .grades-container {
-    width: 140rem;
-    float: left;
-    margin-left: 5rem;
+    width: 93%;
     margin-top: 3rem;
     background-color: white;
+    overflow: hidden;
     /* border-radius: 1rem 1rem 1rem 1rem; */
 }
 
 .grade-container {
-    width: 18rem;
-    height: 19rem;
-    background-color: rgb(241, 241, 241);
+    width: calc(2.5vw + 9rem);
+    height: calc(2.5vw + 10rem);
     float: left;
-    margin-left: 4rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    background-color: rgb(241, 241, 241);
+    margin-left: 3%;
+    margin-bottom: 1vw;
     transition: background-color 0.2s;
 }
 
@@ -359,9 +357,9 @@ body {
 }
 
 .grade-value {
-    margin-top: 4rem;
+    margin-top: 25%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 70px;
+    font-size: calc(1.2vw + 3rem);
     margin-left: -0.5rem;
 }
 
@@ -382,9 +380,6 @@ body {
 .add-lesson-button:hover {
     background-color: rgb(233, 233, 233);
 }
-
-
-/* kjhsajkhsfkjhfaskjhfsakjhfsadkjhfsakjhsafkjhsadkjhsdjh */
 
 .dropbtn {
     background-color: white;
@@ -524,12 +519,4 @@ body {
         margin-top: 3rem;
         margin-right: 1.2rem;
     }
-    /* .asezare-zile {
-width:90%;
-height:30%;
-background-color: #ECECEC;
-margin-left:2rem;
-margin-top:3rem;
-margin-right: 2rem;
-} */
 }

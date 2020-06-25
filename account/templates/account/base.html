@@ -19,108 +19,6 @@
 </head>
 
 <body id_page = "page-top">
-    <!-- {% if user.is_authenticated %}
-    <div class="sidenav" id="sidenav">
-    <center>
-        {% if user.userprofile.profile_picture %}
-            <img src="{{user.userprofile.profile_picture.url}}" style="width: 13rem; height:13rem; border-radius: 50%; margin-top:7%;" />
-        {% else %}
-            <img src="/media/extra/Steach_logo.png" style="width: 100%; float:left; margin-left:-2%;" />
-            {% endif %}
-
-            <h1 class='welcome-text' style="margin-top: 1rem; font-size:260%">{{user.first_name}} {{user.last_name}}</h1>
-
-            <a href="{% url 'account:student_home' %}">
-                <div class='home-sidebar-button' title="Home">
-                    <img src="/media/extra/home.png" style="width: 2rem; height:2rem; margin-top:22%; margin-left:2%;" />
-                </div>
-            </a>
-
-            <a href="{% url 'account:edit_student_profile'%}">
-            <div class='home-sidebar-button' title="Edit Profile">
-                <img src="/media/extra/pencil_black.png" style="width: 2rem; height:2rem; margin-top:20%; margin-left:-5%;" />
-            </div>
-            </a>
-
-            <a href="{% url 'account:logout' %}">
-            <div class='home-sidebar-button' title="Logout">
-                <img src="/media/extra/exit.png" style="width: 2rem; height:2rem; margin-top:25%; margin-left: 10%;" />
-            </div>
-            </a>
-
-            <a href="#">
-                <div class='home-sidebar-button' style="" title="Notfications">
-                    <img src="/media/extra/notificationCalendar
-.png" style="width: 2.4rem; height:2.4rem; margin-top:22%; margin-left:2%;" />
-                </div>
-            </a>
-
-            </center>
-            <br>
-            <div style="width:100%; height:0.2rem; background-color:white; float:left; margin-top:1.5rem;"></div>
-
-            {% if not user.userprofile.main_class %}
-                <a href="{% url 'account:student_join_request' %}">
-                <div class="join-class-button"><h1 class="welcome-text" style="color: black; margin-top: 0.7rem;">Join a Class</h1></div>
-                </a>
-            {% else %}
-
-            <br><br><br><br><br>
-            <button class="mainclass-button" id="mainclass-home" onclick="show_hide()">
-                <img src="/media/extra/menu.png" style="width:17px; height:17px;float:left; margin-left:2rem;margin-top:1.1rem;"/>
-                <h1 class="sidenav-element" id="sidenav-mainclass">{{user.userprofile.main_class.name}}</h1>
-                <img class="arrow-right" src="/media/extra/right-arrow.png" style="width:17px; height:17px;float:right;margin-top:1.1rem;"/>
-                <img class="arrow-down" src="/media/extra/down-arrow.png" style="width:17px; height:17px;float:right;margin-top:1.1rem;"/>
-            </button>
-
-
-            {% for subclass in user.userprofile.main_class.subclass_set.all %}
-                <a href="{% url 'account:student_subclass_home' subclass.id %}">
-                <div class="subclass-home">
-                    <div class="sidenav-subclass-color" style="background-color:#{{subclass.color_code}}"></div>
-                    <h1 class="substudentsclass-home-text">{{ subclass.name }}</h1>
-                </div>
-                </a>
-            {% endfor %}
-
-            <br><br><br><br><br>
-
-            <a href="{% url 'account:student_lessons' 0 %}">
-                <button class="mainclass-button" style="border-radius: 5px 5px 5px 5px;">
-                    <img src="/media/extra/test2.png" style="width:17px; height:17px;float:left; margin-left:2rem;margin-top:1.1rem;"/>
-                    <h1 class="sidenav-element" id="sidenav-mainclass">My Lessons</h1>
-                </button>
-            </a>
-
-            <a href="{% url 'account:student_grades' 0 %}">
-                <button class="mainclass-button" style="border-radius: 5px 5px 5px 5px;">
-                    <img src="/media/extra/folder.png" style="width:17px; height:17px;float:left; margin-left:2rem;margin-top:1.1rem;"/>
-                    <h1 class="sidenav-element" id="sidenav-mainclass">My Grades</h1>
-                </button>
-            </a>
-
-            <a href="{% url 'account:student_archives' 0 0 %}">
-            <button class="mainclass-button" style="border-radius: 5px 5px 5px 5px;">
-                <img src="/media/extra/folder.png" style="width:17px; height:17px;float:left; margin-left:2rem;margin-top:1.1rem;"/>
-                <h1 class="sidenav-element" id="sidenav-mainclass">My Archive</h1>
-            </button>
-            </a>
-
-            <a href="{% url 'account:student_calendar' 0 0 %}">
-            <button class="mainclass-button" style="border-radius: 5px 5px 5px 5px;">
-                <img src="/media/extra/calendar.png" style="width:17px; height:17px;float:left; margin-left:2rem;margin-top:1.1rem;"/>
-                <h1 class="sidenav-element" id="sidenav-mainclass">My Calendar</h1>
-            </button>
-            </a>
-
-
-            <center><button class="btn btn-outline-danger" style="height:3.5rem;margin-top:12rem;"><h1 style="font-size:20px;font-family: 'Raleway', sans-serif;">Leave Class</h1></buttton></center>
-
-            {% endif %}
-            
-    </div>
-    {% endif %}
-    -->
     <div id="wrapper">
 			<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0" style="background: black;box-shadow: 3px 3px 40px black;font-family: 'Source Sans Pro', sans-serif;max-width: 20rem !important;">
 					<div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#"><img class="bounce animated" src="/static/account/images/Steach_logo.png" style="max-width: 100px;max-height: 100px;margin-top: 0px;"></a>
@@ -156,12 +54,12 @@
 									        </ul>
                                     </div>
 					        </nav>
-                    {% comment %} </div>
-			</div> {% endcomment %}
     <div class="main-div" id="main" style="background-color:none;">
     {% block body %}
     {% endblock %}
     </div>
+    <br>
+    <br>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     <footer class="bg-white sticky-footer">
             <div class="container my-auto">
