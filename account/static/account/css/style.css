@@ -219,7 +219,7 @@ body {
 }
 
 .top-bar {
-    width: 75%;
+    width: 90%;
     height: 3rem;
     background-color: white;
     border-radius: 50px;
@@ -246,7 +246,6 @@ body {
 
 .lesson-subtitle {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 17px;
     color: grey;
     float: left;
     margin-left: 1rem;
@@ -280,17 +279,21 @@ body {
     background-color: white;
     border-radius: 10px 10px 10px 10px;
     margin-top: 0.5rem;
-    margin-left: 2rem;
     overflow: hidden;
 }
 
 .lesson-title-detail {
     color: black;
-    font-size: 40px;
+    font-size: calc(0.8vw + 1rem);
     font-family: 'Source Sans Pro', sans-serif;
     float: left;
     margin-top: 1rem;
-    margin-left: 2rem;
+    margin-left: 2%;
+    margin-bottom: -10rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden
 }
 
 .pagination-button {
@@ -447,7 +450,10 @@ body {
 }
 
 .mainclass-topbar-button:hover {
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(2white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden35, 235, 235);
 }
 
 .list-card-mainclass {
@@ -493,7 +499,7 @@ body {
 
 .whole-calendar-pos {
     width: 90%;
-    height: 30%;
+    height: 30rem;
     background-color: #ECECEC;
     margin-left: 3.5rem;
     margin-top: 3rem;
