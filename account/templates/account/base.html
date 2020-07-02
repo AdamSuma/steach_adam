@@ -26,8 +26,9 @@
 							<ul class="nav navbar-nav text-light" id="accordionSidebar" style="font-size: 30px;">
 									<li class="nav-item" role="presentation">
 											<div class="nav-item dropdown show"><a class="dropdown-toggle nav-link dropdown-class" data-toggle="dropdown" aria-expanded="false" href="#">My Classes</a>
-													<div class="dropdown-menu show" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="#" style="color: #fff;border-left: 3px solid red;">11 SN Matematica</a><a class="dropdown-item" role="presentation" href="#" style="border-left: 3px solid yellow;color: #fff;">11 SN Romana</a></div>
-											</div>
+                                                    {% for subclass in user.userprofile.main_class.subclass_set.all %}
+													<div class="dropdown-menu show" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:student_subclass_home' subclass.id %}" style="color: #fff;border-left: 3px solid #{{subclass.color_code}};">{{subclass.name}}</a>                                                    {% endfor %}
+                                            </div>
 									</li>
 									<li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'account:student_lessons' 0%}"><i class="fas fa-pencil-alt"></i><span>&nbsp;Lessons</span></a></li>
 									<li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'account:student_grades' 0%}"><i class="fas fa-folder"></i><span>&nbsp;Grades</span></a></li>

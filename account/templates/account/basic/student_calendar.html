@@ -1,7 +1,8 @@
 {% extends 'account/base.html' %}
 
 {% block body %}
-<div style="float:center;overflow:hidden">
+<center>
+<div style="float:center;overflow:hidden;">
     {% if sub_class %}
     <div class="lesson-maindiv" style="border-left: 0.5rem solid #{{sub_class.color_code}};  ">
     {% else %}
@@ -44,4 +45,5 @@
     <!-- </div> -->
     </div>
 </div>
+</center>
 {% endblock %}
