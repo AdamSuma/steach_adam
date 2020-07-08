@@ -275,7 +275,7 @@ body {
 
 .lesson-maindiv {
     width: 95%;
-    height: 30%;
+    height: 40%;
     background-color: white;
     border-radius: 10px 10px 10px 10px;
     margin-top: 0.5rem;
@@ -284,7 +284,7 @@ body {
 
 .lesson-title-detail {
     color: black;
-    font-size: calc(0.8vw + 1rem);
+    font-size: calc(0.8vw + 1.5rem);
     font-family: 'Source Sans Pro', sans-serif;
     float: left;
     margin-top: 1rem;
@@ -293,7 +293,7 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .pagination-button {
@@ -325,7 +325,7 @@ body {
 .grade-container {
     width: calc(2.5vw + 9rem);
     height: calc(2.5vw + 10rem);
-    float: left;
+    float: left
     background-color: rgb(241, 241, 241);
     margin-left: 3%;
     margin-bottom: 1vw;
@@ -445,7 +445,7 @@ body {
     float: right;
     transition: background-color 0.2s;
     background-color: white;
-    margin-top: 1.5rem;
+    margin-top: 0.4rem;
     box-shadow: 1px 1px 6px lightgrey;
 }
 
@@ -487,6 +487,19 @@ body {
 .notification-button:focus {
     outline: none;
 }
+/* style-uri create de moa */
+.my-archive-classes {
+  width: 15rem;
+  height: 4rem;
+  text-align: center;
+  border-radius: 1rem;
+  margin-right: 0.9rem;
+  float: right;
+  transition: background-color 0.2s;
+  background-color: white;
+  margin-top: 0.5rem;
+  box-shadow: 1px 1px 6px lightgrey;
+}
 
 .asezare-zile {
     width: 90%;
@@ -506,14 +519,71 @@ body {
     margin-right: 5rem;
 }
 
+.calendar-container {
+  float: center;
+  overflow: hidden;
+}
+
+.days-pos {
+  width:100%;
+  height:30.5rem;
+  border-top: solid 2rem white;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.lesson-card-classes {
+  border-bottom: 0.1rem solid #DCDCDC;
+  height: 12rem;
+  width: 95%;
+  background-color: white;
+  margin-left: 1.5rem;
+  transition: background-color 0.2s;
+}
+
+.grey-line-classes {
+  height:0.1rem;
+  width: 97%;
+  background-color:#D2D2D2;
+  margin-top:5rem;
+  margin-left: 1rem;
+}
+
+.lessons-container {
+  width:56rem;
+  height:36rem;
+  background-color: #ECECEC;
+  margin-left:6rem;
+  margin-top:7rem;
+}
+
+.classes-main {
+  margin-left:3rem;
+  float:center;
+  overflow:hidden
+}
+
+.classes-seccond {
+  width: 95%;
+  height: 30%;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
+  float: center;
+}
+
+.red_lessons_border_lines-classes {
+  width:0.4rem;
+  height:12rem;
+  float:left;
+}
+
 @media screen and (max-width: 500px) {
     .lesson-maindiv {
         width: 90%;
         height: 30%;
         background-color: white;
         border-radius: 10px 10px 10px 10px;
-        margin-left: 1.3rem;
-        margin-right: 0rem;
         overflow: hidden;
         float: center;
     }
@@ -521,8 +591,84 @@ body {
         width: 90%;
         height: 30%;
         background-color: #ECECEC;
-        margin-left: 1.2rem;
+        margin-left: 0.95rem;
+        margin-right: 1rem;
         margin-top: 3rem;
-        margin-right: 1.2rem;
     }
+    .lesson-title-detail {
+      	color: black;
+        font-size: calc(0.8vw + 2rem);
+        font-family: 'Source Sans Pro', sans-serif;
+        float: left;
+        margin-top: 1rem;
+        margin-left: 4%;
+        margin-bottom: -10rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: block;
+        overflow: hidden;
+    }
+
+    .calendar-container {
+      float: center;
+      overflow: hidden;
+    }
+
+    .my-archive-classes {
+      width: 6.9rem;
+      height: 4rem;
+      text-align: center;
+      border-radius: 1rem;
+      margin-right: 0.7rem;
+      float: right;
+      transition: background-color 0.2s;
+      background-color: white;
+      margin-top: 0.4rem;
+      box-shadow: 1px 1px 6px lightgrey;
+    }
+
+    .grey-line-classes {
+      height:0.1rem;
+      width: 91%;
+      background-color:#D2D2D2;
+      margin-top:5rem;
+      margin-left: 1rem;
+    }
+
+    .lessons-container {
+      width:40rem;
+      height:36rem;
+      background-color: #ECECEC;
+      margin-left:1rem;
+      margin-top:7rem;
+    }
+
+    .classes-main {
+      float: left;
+      overflow:hidden;
+    }
+
+    .classes-seccond {
+      width: 20rem;
+      height: 30%;
+      background-color: white;
+      border-radius: 10px 10px 10px 10px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .lesson-card-classes {
+      border-bottom: 0.1rem solid #DCDCDC;
+      height: 12rem;
+      width: 95%;
+      background-color: white;
+      margin-left: 1.5rem;
+      transition: background-color 0.2s;
+    }
+    /* .red_lessons_border_lines-classes {
+      width:0.4rem;
+      height:30rem;
+      float:left;
+    } */
+
 }

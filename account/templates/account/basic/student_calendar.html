@@ -2,7 +2,7 @@
 
 {% block body %}
 <center>
-<div style="float:center;overflow:hidden;">
+<div class="calendar-container">
     {% if sub_class %}
     <div class="lesson-maindiv" style="border-left: 0.5rem solid #{{sub_class.color_code}};  ">
     {% else %}
@@ -14,8 +14,8 @@
         {% for date, events in dates.items %}
             <div class="whole-calendar-pos">
                 <h1 style="color:black; margin-top:0.01rem; font-size:30px; margin-left:1rem; font-family: 'Open Sans', sans-serif;float:left;">{{date|date:"l"}}</h1>
-                <h1 class="lesson-subtitle" style="float:right; margin-right:2%; margin-top:0.5rem; color:black;font-size:calc(0.2vw + 1rem);">{{date}}</h1>
-                <div style="width:100%; height:30.5rem; margin-bottom:0rem; border-top: solid 2rem white;overflow-y: auto;overflow-x: hidden;">
+                <h1 class="lesson-subtitle" style="float:right; margin-right:4%; margin-top:0.5rem; color:black;font-size:calc(0.2vw + 1rem);">{{date}}</h1>
+                <div class="days-pos">
                 <br>
                       {% for event in events %}
                       <a href="#" style="color:black;">
