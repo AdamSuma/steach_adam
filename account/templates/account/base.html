@@ -27,7 +27,8 @@
 									<li class="nav-item" role="presentation">
 											<div class="nav-item dropdown show"><a class="dropdown-toggle nav-link dropdown-class" data-toggle="dropdown" aria-expanded="false" href="#">My Classes</a>
                                                     {% for subclass in user.userprofile.main_class.subclass_set.all %}
-													<div class="dropdown-menu show" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:student_subclass_home' subclass.id %}" style="color: #fff;border-left: 3px solid #{{subclass.color_code}};">{{subclass.name}}</a>                                                    {% endfor %}
+													<div class="dropdown-menu show" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:student_subclass_home' subclass.id %}" style="color: #fff;border-left: 3px solid #{{subclass.color_code}};">{{subclass.name}}</a>                                                    
+                                                    {% endfor %}
                                             </div>
 									</li>
 									<li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'account:student_lessons' 0%}"><i class="fas fa-pencil-alt"></i><span>&nbsp;Lessons</span></a></li>
@@ -44,11 +45,11 @@
 											<ul class="nav navbar-nav flex-nowrap ml-auto">
 													<div class="d-none d-sm-block topbar-divider"></div>
 													<li class="nav-item dropdown no-arrow" role="presentation">
-															<div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Sarca Vlad&nbsp;</span><img class="border rounded-circle img-profile" src="/static/account/images/sarca.png"></a>
-																	<div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+															<div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">{{user.first_name}} {{user.last_name}}&nbsp;</span>{% if user.userprofile.profile_picture. %}<img class="border rounded-circle img-profile" src="{{user.userprofile.profile_picture.url}}">{% else %}<img class="border rounded-circle img-profile" src="/media/extra/teachers.png">{% endif %}</a>
+																	<div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="{% url 'account:edit_student_profile' %}"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
 																			<a class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
 																					<div class="dropdown-divider"></div>
-                                                                            <a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                                                            <a class="dropdown-item" role="presentation" href="{% url 'account:logout'%}"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                                                                     </div>
                                                             </div>
 									                </li>

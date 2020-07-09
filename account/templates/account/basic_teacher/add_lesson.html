@@ -5,28 +5,25 @@
 <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 </head>
 {% block body %}
-<div style="margin-left:33.3rem;float:left;">
-    <div class="lesson-maindiv" style="border-left: 0.5rem solid #{{sub_class.color_code}}; height:85rem;">
+<center>
+<div class="lesson-maindiv" style="border-left: 0.5rem solid #{{sub_class.color_code}};margin-left:0rem;overflow:hidden;" align="left">
     <form method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Enter Lesson Title" class="search" style="font-size:40px;color:black;height:5rem; width:80rem;margin-bottom:-10rem;">
-        <div style="float:left; background-color:  rgb(185, 185, 185); width: 45rem; height:0.1rem; margin-top:6.6rem; margin-left:1rem;margin-bottom:-10rem;"></div>
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
+        <input type="text" name="title" placeholder="Enter Lesson Title" class="search" style="float:none;margin-left:1%;font-size:calc(0.8vw + 1rem);color:black;height:3rem;width: 75%;border-bottom:0.05rem solid rgb(185, 185, 185);margin-bottom:-4rem;">
         {% if not sub_class %}
-        <h1 class="search" style="float:left;margin-top:-5rem;">{{ form.sub_class }}</h1>
+        <h1 style="margin-left:1%; margin-top:3rem;font-size:calc(0.3vw + 1rem);font-family: 'Muli', sans-serif;">{{ form.sub_class }}</h1>
         {% else %}
-        <h1 class="search" style="float:left;margin-top:-5rem;font-family: 'Muli', sans-serif;">{{ sub_class }}</h1>
+        <h1 style="margin-left:1%;margin-top:3rem;font-size:calc(0.3vw + 1rem);font-family: 'Muli', sans-serif;">{{ sub_class }}</h1>
         {% endif %}
-        <textarea name="text" placeholder="Enter Description" class="search" style="font-size:20px;color:black;height:20rem; width:80rem;margin-bottom:-100rem;border: solid 1px rgb(185, 185, 185); margin-top:1rem;border-radius:5px;"></textarea>
-        <h1 class="search" style="margin-top:23.5rem;float:left;margin-left:1rem;">PDF:</h1>
-        <input class="search" style="margin-top:23rem;height:4rem;margin-left:-35rem;" type="file" onchange="readURL(this);" name="pdf" id='id_pdf' accept="application/pdf,application/vnd.ms-excel">
-        <center><embed id="pdf" style="margin-top:-12rem;float:right;margin-right:3rem;"/></center>
-        <button class="btn btn-outline-dark" style="font-size:250%;font-family: 'Raleway', sans-serif;float:left;margin-top:30rem;margin-left:-45rem;" type='submit'>Submit</button>
+        <br>
+        <textarea name="text" placeholder="Enter Description" style="width:50%;height:15rem;margin-top:0rem;margin-left:1%;border:0.05rem solid rgb(185, 185, 185); border-radius: 0.2rem;resize:none;"></textarea>
+        <h1 style="margin-left:1%;font-size:calc(0.3vw + 1rem);font-family: 'Muli', sans-serif;width:30%">PDF:</h1>
+        <input style="height:4rem;margin-left:1%;width:30%; overflow:hidden;" type="file" onchange="readURL(this);" name="pdf" id='id_pdf' accept="application/pdf,application/vnd.ms-excel">
+        <center><embed id="pdf" style="height:9rem;margin-left:2%;overflow:auto;"/></center>
+        <button class="btn btn-outline-dark" style="font-size:calc(0.3vw + 1rem);font-family: 'Raleway', sans-serif;margin-top:5rem;margin-left:1%; margin-bottom:2rem;" type='submit'>Submit</button> 
     </form>
-    </div>
 </div>
+</center>
 <script>
 function readURL(input) {
         if (input.files && input.files[0]) {
@@ -44,3 +41,29 @@ function readURL(input) {
     }
 </script>
 {% endblock %}
+
+
+
+
+{% comment %} {% extends 'account/base.html' %}
+
+{% block body %}
+<center>
+<div class="lesson-maindiv" style="border-left: 0.5rem solid #{{lesson.sub_class.color_code}};margin-left:0rem;">
+    <h1 class="lesson-title-detail" style="margin-left:1%;float:left; text-align:left;">{{lesson.title}}</h1>
+    <h1 class="lesson-subtitle" style="font-size: calc(0.8vw + 0.5rem);margin-top: calc(0.5vw + 2.5rem);float:left;text-align:left;margin-left:1%">{{lesson.sub_class.name}}</h1>
+    <h1 class="lesson-title" style="margin-top:1rem;text-align:right; margin-right:1.5%;float:none;color:black;font-size: calc(0.6vw + 0.5rem);">{{lesson.date_added}}</h1>
+    <h1 class="lesson-title" style="color:black;float:right;margin-top: calc(0.2vw + 0.7rem);margin-right:1.5%;font-size: calc(0.6vw + 0.5rem)">{{lesson.sub_class.teacher.user.first_name}} {{lesson.sub_class.teacher.user.last_name}}</h1>
+    {% if lesson.sub_class.teacher.profile_picture %}
+    <img src="{{lesson.sub_class.teacher.profile_picture.url}}" style="width:3vw; height:3vw; border-radius:100%;float:right; margin-top:6rem;margin-bottom:-500rem;">
+    {% else %}
+    <img src="/media/extra/user.png" style="width:calc(1vw + 1.5rem); height:calc(1vw + 1.5rem);float:right;margin-top: calc(0.1vw + 0.3rem);margin-bottom:-500rem;">
+    {% endif %}
+    <h1 style="text-align:left;font-family: 'Source Sans Pro', sans-serif; font-size: calc(0.5vw + 0.8rem);margin-top:calc(3vw + 3rem);margin-left:2%;color:black;">{{lesson.text|linebreaks}}</h1>
+    {% if lesson.pdf %}
+    <center><iframe src="{{lesson.pdf.url}}" style="margin-top:2rem;width:80%;height:calc(30vw + 20rem);"></iframe></center>
+    <br>
+    {% endif %}
+</div>
+</center>
+{% endblock %} {% endcomment %}

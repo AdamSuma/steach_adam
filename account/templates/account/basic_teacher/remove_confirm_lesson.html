@@ -1,23 +1,24 @@
 {% extends 'account/teacher_base.html' %}
 
 {% block body %}
-<div style="margin-left:33rem;">
-    <div class="lesson-maindiv" style="height:70rem;width:90rem;float:left; border-radius:1rem;margin-left:30rem;">
+<center>
+<div class="lesson-maindiv" style="margin-left:0rem;overflow:hidden;" align="center">
     <center>
-    <img src='/media/extra/warning.png' style="height:35rem; width:35rem;margin-top:5rem;"/>
+    <img src='/media/extra/warning.png' style="height:4rem;width:4rem;margin-top:2rem;"/>
     </center>
     <center>
-    <h1 style="font-size:30px;font-family:'Muli';margin-top:10rem;">Are you sure you want to delete <b>{{ lesson.title }}</b>?</h1>
+    <h1 style="font-size:1.5rem;font-family:'Muli';margin-top:3rem;">Are you sure you want to delete <b>{{ lesson.title }}</b>?</h1>
     </center>
     <br><br>
     <center>
     <a href="{% url 'account:remove_lesson' lesson.sub_class.id lesson.id %}">
-    <button class="btn btn-outline-danger" style="margin-right:2rem;font-size:20px;font-family:'Muli';">Yes, I am</button>
+    <button class="btn btn-outline-danger" style="font-family:'Muli';">Yes, I am</button>
     </a>
     <a href="{% url 'account:teacher_lessons' 0 %}">
-    <button class="btn btn-outline-dark" style="font-size:20px;font-family:'Muli';">No, take me back</button>
+    <button class="btn btn-outline-dark" style="font-family:'Muli';">No, take me back</button>
     </a>
     </center>
+    <br>
     </div>
-</div>
+</center>
 {% endblock %}

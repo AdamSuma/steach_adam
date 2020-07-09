@@ -240,6 +240,58 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 23px;
     float: left;
+    a.animated-button:link:after,
+    a.animated-button:visited:after {
+        content: "";
+        position: absolute;
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        width: 150%;
+        z-index: -1;
+        -webkit-transition: all .75s ease 0s;
+        -moz-transition: all .75s ease 0s;
+        -o-transition: all .75s ease 0s;
+        transition: all .75s ease 0s
+    }
+    a.animated-button:link:hover,
+    a.animated-button:visited:hover {
+        color: #fff;
+        text-shadow: none
+    }
+    a.animated-button:link:hover:after,
+    a.animated-button:visited:hover:after {
+        height: 450%
+    }
+    a.animated-button:link,
+    a.animated-button:visited {
+        position: relative;
+        margin: 8px auto 0;
+        padding: 9px 22px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        letter-spacing: .08em;
+        text-shadow: 0 0 1px rgba(0, 0, 0, .2), 0 1px 0 rgba(0, 0, 0, .2);
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease
+    }
+    a.animated-button.victoria-one {
+        border: 2px solid #D24D57
+    }
+    a.animated-button.victoria-one:after {
+        background: #D24D57;
+        -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+        -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+        transform: translateX(-50%) translateY(-50%) rotate(-25deg)
+    }
     margin-top: 1.5rem;
     margin-left: 1rem;
 }
@@ -253,7 +305,7 @@ body {
 }
 
 .search {
-    width: 30%;
+    width: 25%;
     height: 1.5rem;
     margin-top: 0.8rem;
     margin-left: 0.5rem;
@@ -325,7 +377,7 @@ body {
 .grade-container {
     width: calc(2.5vw + 9rem);
     height: calc(2.5vw + 10rem);
-    float: left
+    float: left;
     background-color: rgb(241, 241, 241);
     margin-left: 3%;
     margin-bottom: 1vw;
@@ -470,11 +522,10 @@ body {
 
 .notification-button {
     border-radius: 0.5rem;
-    width: 4rem;
-    height: 4rem;
+    width: 2rem;
+    height: 2rem;
     background-color: #F4F4F4;
     float: right;
-    margin-top: 10rem;
     margin-right: 1.5rem;
     box-shadow: 1px 0.5px 2.5px lightgrey;
     transition: background-color 0.2s;
@@ -487,18 +538,21 @@ body {
 .notification-button:focus {
     outline: none;
 }
-/* style-uri create de moa */
+
+
+/* style-uri create de moa (daca faci franceza sa-ti fie rusine MOI ;) ) */
+
 .my-archive-classes {
-  width: 15rem;
-  height: 4rem;
-  text-align: center;
-  border-radius: 1rem;
-  margin-right: 0.9rem;
-  float: right;
-  transition: background-color 0.2s;
-  background-color: white;
-  margin-top: 0.5rem;
-  box-shadow: 1px 1px 6px lightgrey;
+    width: 15rem;
+    height: 4rem;
+    text-align: center;
+    border-radius: 1rem;
+    margin-right: 0.9rem;
+    float: right;
+    transition: background-color 0.2s;
+    background-color: white;
+    margin-top: 0.5rem;
+    box-shadow: 1px 1px 6px lightgrey;
 }
 
 .asezare-zile {
@@ -520,62 +574,62 @@ body {
 }
 
 .calendar-container {
-  float: center;
-  overflow: hidden;
+    float: center;
+    overflow: hidden;
 }
 
 .days-pos {
-  width:100%;
-  height:30.5rem;
-  border-top: solid 2rem white;
-  overflow-y: auto;
-  overflow-x: hidden;
+    width: 100%;
+    height: 30.5rem;
+    border-top: solid 2rem white;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .lesson-card-classes {
-  border-bottom: 0.1rem solid #DCDCDC;
-  height: 12rem;
-  width: 95%;
-  background-color: white;
-  margin-left: 1.5rem;
-  transition: background-color 0.2s;
+    border-bottom: 0.1rem solid #DCDCDC;
+    height: 12rem;
+    width: 95%;
+    background-color: white;
+    margin-left: 1.5rem;
+    transition: background-color 0.2s;
 }
 
 .grey-line-classes {
-  height:0.1rem;
-  width: 97%;
-  background-color:#D2D2D2;
-  margin-top:5rem;
-  margin-left: 1rem;
+    height: 0.1rem;
+    width: 97%;
+    background-color: #D2D2D2;
+    margin-top: 5rem;
+    margin-left: 1rem;
 }
 
 .lessons-container {
-  width:56rem;
-  height:36rem;
-  background-color: #ECECEC;
-  margin-left:6rem;
-  margin-top:7rem;
+    width: 56rem;
+    height: 36rem;
+    background-color: #ECECEC;
+    margin-left: 6rem;
+    margin-top: 7rem;
 }
 
 .classes-main {
-  margin-left:3rem;
-  float:center;
-  overflow:hidden
+    margin-left: 3rem;
+    float: center;
+    overflow: hidden
 }
 
 .classes-seccond {
-  width: 95%;
-  height: 30%;
-  background-color: white;
-  border-radius: 10px 10px 10px 10px;
-  overflow: hidden;
-  float: center;
+    width: 95%;
+    height: 30%;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    float: center;
 }
 
 .red_lessons_border_lines-classes {
-  width:0.4rem;
-  height:12rem;
-  float:left;
+    width: 0.4rem;
+    height: 12rem;
+    float: left;
 }
 
 @media screen and (max-width: 500px) {
@@ -596,7 +650,7 @@ body {
         margin-top: 3rem;
     }
     .lesson-title-detail {
-      	color: black;
+        color: black;
         font-size: calc(0.8vw + 2rem);
         font-family: 'Source Sans Pro', sans-serif;
         float: left;
@@ -608,67 +662,59 @@ body {
         display: block;
         overflow: hidden;
     }
-
     .calendar-container {
-      float: center;
-      overflow: hidden;
+        float: center;
+        overflow: hidden;
     }
-
     .my-archive-classes {
-      width: 6.9rem;
-      height: 4rem;
-      text-align: center;
-      border-radius: 1rem;
-      margin-right: 0.7rem;
-      float: right;
-      transition: background-color 0.2s;
-      background-color: white;
-      margin-top: 0.4rem;
-      box-shadow: 1px 1px 6px lightgrey;
+        width: 6.9rem;
+        height: 4rem;
+        text-align: center;
+        border-radius: 1rem;
+        margin-right: 0.7rem;
+        float: right;
+        transition: background-color 0.2s;
+        background-color: white;
+        margin-top: 0.4rem;
+        box-shadow: 1px 1px 6px lightgrey;
     }
-
     .grey-line-classes {
-      height:0.1rem;
-      width: 91%;
-      background-color:#D2D2D2;
-      margin-top:5rem;
-      margin-left: 1rem;
+        height: 0.1rem;
+        width: 91%;
+        background-color: #D2D2D2;
+        margin-top: 5rem;
+        margin-left: 1rem;
     }
-
     .lessons-container {
-      width:40rem;
-      height:36rem;
-      background-color: #ECECEC;
-      margin-left:1rem;
-      margin-top:7rem;
+        width: 40rem;
+        height: 36rem;
+        background-color: #ECECEC;
+        margin-left: 1rem;
+        margin-top: 7rem;
     }
-
     .classes-main {
-      float: left;
-      overflow:hidden;
+        float: left;
+        overflow: hidden;
     }
-
     .classes-seccond {
-      width: 20rem;
-      height: 30%;
-      background-color: white;
-      border-radius: 10px 10px 10px 10px;
-      overflow: hidden;
-      float: left;
+        width: 20rem;
+        height: 30%;
+        background-color: white;
+        border-radius: 10px 10px 10px 10px;
+        overflow: hidden;
+        float: left;
     }
-
     .lesson-card-classes {
-      border-bottom: 0.1rem solid #DCDCDC;
-      height: 12rem;
-      width: 95%;
-      background-color: white;
-      margin-left: 1.5rem;
-      transition: background-color 0.2s;
+        border-bottom: 0.1rem solid #DCDCDC;
+        height: 12rem;
+        width: 95%;
+        background-color: white;
+        margin-left: 1.5rem;
+        transition: background-color 0.2s;
     }
     /* .red_lessons_border_lines-classes {
       width:0.4rem;
       height:30rem;
       float:left;
     } */
-
 }
