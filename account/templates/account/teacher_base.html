@@ -18,20 +18,20 @@
 
 </head>
 
-<body id_page = "page-top">
+<body id_page = "page-top" class="">
     <div id="wrapper">
-			<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0" style="background: black;box-shadow: 3px 3px 40px black;font-family: 'Source Sans Pro', sans-serif;max-width: 20rem !important;">
+			<nav id="x" class="sidebar sidebar-dark accordion p-0" style="background: black;box-shadow: 3px 3px 40px black;font-family: 'Source Sans Pro', sans-serif;max-width: 20rem !important;">
 					<div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#"><img class="bounce animated" src="/static/account/images/Steach_logo.png" style="max-width: 100px;max-height: 100px;margin-top: 0px;"></a>
 							<hr class="sidebar-divider my-0">
 							<ul class="nav navbar-nav text-light" id="accordionSidebar" style="font-size: 30px;">
                             <a href="{% url 'account:mainclass_home'%}" class="btn btn-outline-danger">{{user.userprofile.main_class.name}}</a>
 									<li class="nav-item" role="presentation">
-											<div class="nav-item dropdown show"><a class="dropdown-toggle nav-link dropdown-class" data-toggle="dropdown" aria-expanded="false" href="#">My Classes</a>
+											<div class="nav-item dropdown hide"><a class="dropdown-toggle nav-link dropdown-class" data-toggle="dropdown" aria-expanded="false" href="#">My Classes</a>
                                                     {% if not user.userprofile.subclass_set.all %}
-													<div class="dropdown-menu show" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:teacher_home'%}" style="color: #fff;border-left: 3px solid lightgrey;">You are not part of any Class</a>
+													<div class="dropdown-menu hide" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:teacher_home'%}" style="color: #fff;border-left: 3px solid lightgrey;">You are not part of any Class</a>
                                                     {% endif %}
                                                     {% for subclass in user.userprofile.subclass_set.all %}
-													<div class="dropdown-menu show" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:student_subclass_home' subclass.id %}" style="color: #fff;border-left: 3px solid #{{subclass.color_code}};">{{subclass}}</a>                                                    
+													<div class="dropdown-menu hide" role="menu" style="border-radius: 0%;border: none;background-color: rgb(37, 37, 37);"><a class="dropdown-item" role="presentation" href="{% url 'account:student_subclass_home' subclass.id %}" style="color: #fff;border-left: 3px solid #{{subclass.color_code}};">{{subclass}}</a>                                                    
                                                     {% endfor %}
                                             </div>
 									</li>
@@ -82,6 +82,10 @@
 
 </body>
 <script>
+
+if(window.screen.width < 500){
+    document.getElementById("x").classList.add("toggled")
+}
 
 if(document.getElementById("mainclass-home")){
     document.getElementById("mainclass-home").addEventListener("mouseover", function () {
