@@ -11,14 +11,14 @@
         </a>
         <div class="grey-line-classes"></div>
         {% if sub_class.teacher.profile_picture %}
-        <img src="{{sub_class.teacher.profile_picture.url}}" style="width:4rem; height:4rem; border-radius:2rem;float:left; margin-top:2rem; margin-left:2rem;"/>
+        <img src="{{sub_class.teacher.profile_picture.url}}" style="width:3.8rem; height:3.8rem; border-radius:2rem;float:left; margin-top:0.2rem; margin-left:1rem; white-space: nowrap; text-overflow:ellipsis; display: block; overflow: hidden;"/>
         {% else %}
         <img src="/media/extra/user.png" style="width:3rem; height:3rem; float:left; margin-top:1.5rem; margin-left:1.2rem;"/>
         {% endif %}
-        <h1 class="lesson-title-details" style="float:left;margin-left:1rem; margin-top:2.5rem;font-size:25px;margin-bottom:-500rem;color:black;">{{sub_class.teacher.user.first_name}} {{sub_class.teacher.user.last_name}}</h1>
+        <h1 class="lesson-title-detail" style="float:left;margin-left:0.8rem; margin-top:1.4rem;font-size:25px;margin-bottom:-500rem;color:black;white-space: nowrap;text-overflow:ellipsis;display: block;overflow: hidden;">{{sub_class.teacher.user.first_name}} {{sub_class.teacher.user.last_name}}</h1>
 
         <div class="lessons-container">
-            <h1 style="color:black; margin-top:-1rem;font-size:37px; margin-left:2rem;font-family: 'Open Sans', sans-serif;">Lessons</h1>
+            <h1 style="color:black; margin-top:-0.9rem;font-size:37px; margin-left:1.5rem;font-family: 'Open Sans', sans-serif;">Lessons</h1>
             <a href="{% url 'account:student_lessons' sub_class.id %}">
               <div class='home-sidebar-button' style="border-radius:0.5rem; margin-top:-3.1rem; margin-right:1rem; float:right; width:3rem; height:3rem;" title="More">
                   <img src="/media/extra/more.png" style="width: 2rem; height:2rem; margin-top:20%; margin-left:17%;" />
@@ -29,11 +29,12 @@
                     {% for lesson in last_lessons %}
                     <a href="{% url 'account:student_lesson' sub_class.id lesson.id%}" style="color:black;">
                     <div class="lesson-card-classes">
-                        <!-- <div class= "red_lessons_border_lines-classes" style="background-color:#{{sub_class.color_code}};"></div> -->
+                        <div class= "red_lessons_border_lines-classes" style="background-color:#{{sub_class.color_code}};">
                         <h1 class="lesson-title">{{lesson.title}}</h1>
                         <h1 class="lesson-subtitle">{{lesson.sub_class.name}}</h1>
                         <h1 class="lesson-subtitle" style="float:right; margin-right:2rem; margin-top:-2.5rem; color:black;">{{lesson.date_added}}</h1>
-                    </div>
+                        </div>
+                      </div>
                     <div style="height:0.1rem; width:140rem;float:left;margin-bottom:-0.1rem;"></div>
                     </a>
                     {% endfor %}
@@ -41,7 +42,7 @@
             </div>
         </div>
 
-        <div style="width:40%; height:35rem; background-color: #ECECEC; margin-left: 6rem; margin-top:4rem; margin-bottom: 1rem; float: left;">
+        <div class="grades-container">
             <h1 style="color:black; margin-top:0.5rem; font-size:37px; margin-left:1.5rem; font-family: 'Open Sans', sans-serif;">Grades</h1>
             <a href="{% url 'account:student_grades' sub_class.id %}">
               <div class='home-sidebar-button' style="border-radius:0.5rem; margin-top:-3.3rem; margin-right:1rem; float:right; width:3rem; height:3rem;" title="More">
@@ -68,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div style="width:40%; height:35rem; background-color: #ECECEC; margin-left: 5rem; margin-top:4rem; margin-bottom: 3rem; float: left; margin-right: 1rem;">
+        <div class="events-container">
             <h1 style="color:black; margin-top:0.5rem; font-size:37px; margin-left:1.5rem; font-family: 'Open Sans', sans-serif;">Events</h1>
             <a href="{% url 'account:student_grades' sub_class.id %}">
               <div class='home-sidebar-button' style="border-radius:0.5rem; margin-top:-3.4rem; margin-right:1rem; float:right; width:3rem; height:3rem;" title="More">
