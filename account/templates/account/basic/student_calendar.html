@@ -16,10 +16,10 @@
                 <h1 style="color:black; margin-top:0.01rem; font-size:30px; margin-left:1rem; font-family: 'Open Sans', sans-serif;float:left;">{{date|date:"l"}}</h1>
                 <h1 class="lesson-subtitle" style="float:right; margin-right:4%; margin-top:0.5rem; color:black;font-size:calc(0.2vw + 1rem);">{{date}}</h1>
                 <div class="days-pos">
-                <br>
+                  <div style="margin-top: 0.7rem; margin-bottom: 1rem;"></div>
                       {% for event in events %}
                       <a href="#" style="color:black;">
-                      <div class="list-card" style="border-left:0.3rem solid #{{event.sub_class.color_code}}; border-bottom: 0.1rem solid #DCDCDC; width:95%; margin-left:2%;">
+                      <div class="list-card" style="border-left:0.3rem solid #{{event.sub_class.color_code}}; border-bottom: 0.1rem solid #DCDCDC; width:95%;">
                           {% if event.event_type == "homework" %}
                           <img src="/media/extra/homework.png" style="float:left; height:2.3rem; width:2.3rem;margin-top:1rem;margin-left:0.3rem;" />
                           {% elif event.event_type == "test" %}

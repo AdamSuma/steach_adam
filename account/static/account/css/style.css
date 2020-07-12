@@ -514,11 +514,12 @@ body {
 
 .whole-calendar-pos {
     width: 90%;
-    height: 30rem;
+    height: 34rem;
     background-color: #ECECEC;
     margin-left: 3.5rem;
     margin-top: 3rem;
     margin-right: 5rem;
+    overflow: inherit;
 }
 
 .calendar-container {
@@ -581,7 +582,7 @@ body {
     float: left;
 }
 
-.grades-container {
+.grade-container {
   width:40%;
   height:35rem;
   background-color: #ECECEC;
@@ -613,7 +614,7 @@ body {
     }
     .whole-calendar-pos {
         width: 90%;
-        height: 30%;
+        height: 34rem;
         background-color: #ECECEC;
         margin-left: 0.95rem;
         margin-right: 1rem;
@@ -686,7 +687,7 @@ body {
         transition: background-color 0.2s;
     }
 
-    .grades-container {
+    .grade-container {
       width:94%;
       height:35rem;
       background-color: #ECECEC;
