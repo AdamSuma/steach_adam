@@ -8,16 +8,16 @@
     </form>
     <br><br><br><br>
     {% for grade in grades %}
-    <div class="grade-container" style="border-left: 0.5rem solid #{{ grade.sub_class.color_code}};">
+    <div class="grade-container-subclass-home" onMouseOver="this.style.backgroundColor='#d1d1d1'" onMouseOut="this.style.backgroundColor='#ECECEC'"style="margin-top:0rem;background-color:#ECECEC;border-left: 0.5rem solid #{{ grade.sub_class.color_code}}">
     <h1 class="grade-date">{{grade.date_added}}</h1>
     <center>
-    {% if not grade.is_term_paper %}
-    <h1 class="grade-value">{{grade.value}}</h1>
+    {% if grade.is_term_paper %}
+    <h1 class="grade-value" style="font-size:55px;color:red;">{{grade.value}}</h1>
     {% else %}
-    <h1 class="grade-value" style="color:#C70000;">{{grade.value}}</h1>
+    <h1 class="grade-value" style="font-size:55px;">{{grade.value}}</h1>
     {% endif %}
-    <h1 class="grade-value" style="font-size:calc(0.3vw + 1.5rem); color: grey; margin-top:-1rem;" title="Actual Grade">{{grade.actual_value}}</h1>
-    <h1 class="grade-value" style="font-size:calc(0.3vw + 0.8rem); color: black; margin-top:1rem; font-family:'Source Sans Pro', sans serif;">{{grade.sub_class.name}}</h1>
+    <h1 class="grade-value" style="font-size: 23px; color: grey; margin-top:-1rem;" title="Actual Grade">{{grade.actual_value}}</h1>
+    <h1 class="grade-value" style="font-size: 14px; color: black; margin-top:1rem; font-family:'Source Sans Pro', sans serif;">{{grade.sub_class.name}}</h1>
     </center>
     </div>
     {% endfor %}

@@ -6,37 +6,36 @@
         <h1 class="lesson-title-detail">{{sub_class.name}}</h1>
         <a href="{% url 'account:student_archives' sub_class.id 0%}" style="text-decoration:none;color:black;">
           <div class='my-archive-classes'>
-              <h1 style="font-size:17px; font-family: 'Muli', sans-serif; margin-top:1.2rem;">My Archive</h1>
+              <h1 style="font-size:17px; font-family: 'Muli', sans-serif; margin-top:1rem;">My Archive</h1>
           </div>
         </a>
-        <div class="grey-line-classes"></div>
+        <div class="grey-line-classes" style="margin-top:4.5rem;"></div>
         {% if sub_class.teacher.profile_picture %}
-        <img src="{{sub_class.teacher.profile_picture.url}}" style="width:3.8rem; height:3.8rem; border-radius:2rem;float:left; margin-top:0.2rem; margin-left:1rem; white-space: nowrap; text-overflow:ellipsis; display: block; overflow: hidden;"/>
+        <img src="{{sub_class.teacher.profile_picture.url}}" style="width:3rem; height:3rem; border-radius:2rem;float:left; margin-top:0.2rem; margin-left:1rem; white-space: nowrap; text-overflow:ellipsis; display: block; overflow: hidden;"/>
         {% else %}
-        <img src="/media/extra/user.png" style="width:3rem; height:3rem; float:left; margin-top:1.5rem; margin-left:1.2rem;"/>
+        <img src="/media/extra/user.png" style="width:3rem; height:3rem; border-radius:2rem;float:left; margin-top:0.2rem; margin-left:1rem; white-space: nowrap; text-overflow:ellipsis; display: block; overflow: hidden;"/>
         {% endif %}
-        <h1 class="lesson-title-detail" style="float:left;margin-left:0.8rem; margin-top:1.4rem;font-size:25px;margin-bottom:-500rem;color:black;white-space: nowrap;text-overflow:ellipsis;display: block;overflow: hidden;">{{sub_class.teacher.user.first_name}} {{sub_class.teacher.user.last_name}}</h1>
+        <h1 class="lesson-title-detail" style="float:left;margin-left:0.8rem; margin-top:0.9rem;font-size:25px;margin-bottom:-500rem;color:black;white-space: nowrap;text-overflow:ellipsis;display: block;overflow: hidden;">{{sub_class.teacher.user.first_name}} {{sub_class.teacher.user.last_name}}</h1>
 
-        <div class="lessons-container">
+        <div class="lessons-container" style="margin-top:5.5rem;">
             <h1 style="color:black; margin-top:-0.9rem;font-size:37px; margin-left:1.5rem;font-family: 'Open Sans', sans-serif;">Lessons</h1>
             <a href="{% url 'account:student_lessons' sub_class.id %}">
-              <div class='home-sidebar-button' style="border-radius:0.5rem; margin-top:-3.1rem; margin-right:1rem; float:right; width:3rem; height:3rem;" title="More">
-                  <img src="/media/extra/more.png" style="width: 2rem; height:2rem; margin-top:20%; margin-left:17%;" />
+              <div class='home-sidebar-button' style="border-radius:0.5rem; margin-top:-2.8rem; margin-right:0.8rem; float:right; width:2.5rem; height:2.5rem;" title="More">
+                  <img src="/media/extra/more.png" style="width: 1.8rem; height:1.8rem; margin-top:0.45rem; margin-left:0.4rem;" />
               </div>
             </a>
             <div style="width:100%; height:30.5rem; border-top: solid 2rem white;">
                 <div style="overflow-x:hidden; overflow-y: auto; height:26.5rem; margin-top:1rem;">
                     {% for lesson in last_lessons %}
-                    <a href="{% url 'account:student_lesson' sub_class.id lesson.id%}" style="color:black;">
-                    <div class="lesson-card-classes">
-                        <div class= "red_lessons_border_lines-classes" style="background-color:#{{sub_class.color_code}};">
-                        <h1 class="lesson-title">{{lesson.title}}</h1>
-                        <h1 class="lesson-subtitle">{{lesson.sub_class.name}}</h1>
-                        <h1 class="lesson-subtitle" style="float:right; margin-right:2rem; margin-top:-2.5rem; color:black;">{{lesson.date_added}}</h1>
+                        <center>
+                        <a href="{% url 'account:student_lesson' lesson.sub_class.id lesson.id%}" style="color:black;">
+                        <div class="list-card" style="border-left: 0.4rem solid #DCDCDC;border-left:0.4rem solid #{{lesson.sub_class.color_code}};border-bottom: 1px solid #D2D2D2;">
+                            <h1 class="lesson-title" style="width:65%;margin-bottom:-10rem;margin-top:1rem;text-align:left;white-space: nowrap;text-overflow:ellipsis;display: block;overflow: hidden">{{lesson.title}}</h1>
+                            <h1 class="lesson-subtitle" style="font-size:1rem;">{{lesson.sub_class.name}}</h1>
+                            <h1 class="lesson-subtitle" style="float:right; margin-right:2%; margin-top:1rem; font-size:15px; color:black;">{{lesson.date_added}}</h1>
                         </div>
-                      </div>
-                    <div style="height:0.1rem; width:140rem;float:left;margin-bottom:-0.1rem;"></div>
-                    </a>
+                        </a>    
+                        </center>
                     {% endfor %}
                 </div>
             </div>
@@ -71,7 +70,7 @@
         </div>
         <div class="events-container">
             <h1 style="color:black; margin-top:0.5rem; font-size:37px; margin-left:1.5rem; font-family: 'Open Sans', sans-serif;">Events</h1>
-            <a href="{% url 'account:student_grades' sub_class.id %}">
+            <a href="{% url 'account:student_calendar' sub_class.id 0 %}">
               <div class='home-sidebar-button' style="border-radius:0.5rem; margin-top:-3.4rem; margin-right:1rem; float:right; width:3rem; height:3rem;" title="More">
                   <img src="/media/extra/more.png" style="width: 2rem; height:2rem; margin-top:20%; margin-left:17%;" />
               </div>
@@ -79,20 +78,28 @@
             <div style="width:100%; height:36.5rem; margin-top:0rem; border-top: solid 2rem white;">
                 <br>
                 <div style="overflow-x:hidden; overflow-y: auto;height:26.5rem;">
-                    {% for grade in last_grades %}
-                    <div class="grade-container-subclass-home" style="border-left: 0.5rem solid #{{ grade.sub_class.color_code}}">
-                    <h1 class="grade-date">{{grade.date_added}}</h1>
+                    {% for event in next_events %}
                     <center>
-                    {% if grade.is_term_paper %}
-                    <h1 class="grade-value" style="font-size:55px;color:red;">{{grade.value}}</h1>
-                    {% else %}
-                    <h1 class="grade-value" style="font-size:55px;">{{grade.value}}</h1>
-                    {% endif %}
-                    <h1 class="grade-value" style="font-size: 23px; color: grey; margin-top:-1rem;" title="Actual Grade">{{grade.actual_value}}</h1>
-                    <h1 class="grade-value" style="font-size: 14px; color: black; margin-top:1rem; font-family:'Source Sans Pro', sans serif;">{{grade.sub_class.name}}</h1>
-                    </center>
-                    </div>
-                    {% endfor %}
+                      <a href="#" style="color:black;">
+                      <div class="list-card" style="border-left:0.3rem solid #{{event.sub_class.color_code}}; border-bottom: 0.1rem solid #DCDCDC; width:95%;">
+                          {% if event.event_type == "homework" %}
+                          <img src="/media/extra/homework.png" style="float:left; height:2.3rem; width:2.3rem;margin-top:1rem;margin-left:0.3rem;" />
+                          {% elif event.event_type == "test" %}
+                          <img src="/media/extra/pen.png" style="float:left; height:2.3rem; width:2.3rem;margin-top:1rem;margin-left:0.3rem;" />
+                          {% elif event.event_type == "project" %}
+                          <img src="/media/extra/project.png" style="float:left; height:2.3rem; width:2.3rem;margin-top:1rem;margin-left:0.2rem;" />
+                          {% endif %}
+                          <h1 class="lesson-title" style="margin-top:calc(0.1vw + 0.5rem);font-size:calc(0.4vw + 1rem);margin-bottom:-10rem;margin-left:1.2%;">{{event.name}}</h1>
+                          <h1 class="lesson-subtitle" style="margin-left:1.2%;margin-top:calc(1vw + 1.4rem);font-size:calc(0.2vw + 0.8rem);">{{event.sub_class.name}}</h1>
+                          <h1 class="lesson-subtitle" style="float:right; margin-right:1.5%;margin-top:calc(0.1vw + 0.5rem); color:black;font-size:calc(0.2vw + 0.8rem);">{{event.date}}</h1>
+                      </div>
+                      <div style="height:0.1rem; width:140rem;float:left;margin-bottom:-0.1rem;"></div>
+                      </a>
+                      {% empty %}
+                      <center>
+                          <h1 style="color:black; margin-top:10rem;font-size:30px; margin-left:1rem;font-family: 'Open Sans', sans-serif;">Looks like you don't have anything on this day :)</h1>
+                      </center>
+                      {% endfor %}
                 </div>
             </div>
         </div>

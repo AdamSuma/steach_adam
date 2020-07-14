@@ -285,6 +285,7 @@ body {
 .lesson-title-detail {
     color: black;
     font-size: calc(0.8vw + 1.5rem);
+    width: 56%;
     font-family: 'Source Sans Pro', sans-serif;
     float: left;
     margin-top: 1rem;
@@ -333,12 +334,12 @@ body {
 }
 
 .grade-container-subclass-home {
-    width: 15rem;
-    height: 16rem;
+    width: 9rem;
+    height: 11rem;
     background-color: white;
     float: left;
-    margin-left: 3.5rem;
-    margin-top: 2rem;
+    margin-left: 2%;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     transition: background-color 0.2s;
 }
@@ -492,7 +493,7 @@ body {
 
 .my-archive-classes {
     width: 15rem;
-    height: 4rem;
+    height: 3.3rem;
     text-align: center;
     border-radius: 1rem;
     margin-right: 0.9rem;
@@ -583,24 +584,24 @@ body {
 }
 
 .grade-container {
-  width:40%;
-  height:35rem;
-  background-color: #ECECEC;
-  margin-left: 4rem;
-  margin-top:4rem;
-  margin-bottom: 1rem;
-  float: left;
+    width: 40%;
+    height: 35rem;
+    background-color: #ECECEC;
+    margin-left: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    float: left;
 }
 
 .events-container {
-  width: 43%;
-  height: 35rem;
-  background-color: #ECECEC;
-  margin-left: 5rem;
-  margin-top: 4rem;
-  margin-bottom: 3rem;
-  float: left;
-  margin-right: 1rem;
+    width: 43%;
+    height: 35rem;
+    background-color: #ECECEC;
+    margin-left: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    float: left;
+    margin-right: 1rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -622,16 +623,12 @@ body {
     }
     .lesson-title-detail {
         color: black;
-        font-size: calc(0.8vw + 2rem);
+        font-size: calc(0.8vw + 1.5rem);
         font-family: 'Source Sans Pro', sans-serif;
         float: left;
         margin-top: 1rem;
         margin-left: 4%;
         margin-bottom: -10rem;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        display: block;
-        overflow: hidden;
     }
     .calendar-container {
         float: center;
@@ -639,7 +636,7 @@ body {
     }
     .my-archive-classes {
         width: 6.9rem;
-        height: 4rem;
+        height: 3.3rem;
         text-align: center;
         border-radius: 1rem;
         margin-right: 0.7rem;
@@ -686,24 +683,22 @@ body {
         margin-left: 1rem;
         transition: background-color 0.2s;
     }
-
     .grade-container {
-      width:94%;
-      height:35rem;
-      background-color: #ECECEC;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      margin-left: 0.6rem;
-      float: left;
+        width: 94%;
+        height: 35rem;
+        background-color: #ECECEC;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        margin-left: 0.6rem;
+        float: left;
     }
-
     .events-container {
-      width: 94%;
-      height: 35rem;
-      background-color: #ECECEC;
-      margin-left: 0.6rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      float: left;
+        width: 94%;
+        height: 35rem;
+        background-color: #ECECEC;
+        margin-left: 0.6rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        float: left;
     }
 }

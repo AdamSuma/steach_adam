@@ -163,10 +163,11 @@ def student_subclass_home(request, subclass_id):
         return redirect('account:' + rd)
 
     template_name = "account/basic/subclass_home.html"
-    subclass = SubClass.objects.get(id=subclass_id)
+    subclass = SubClass.objects.get(id=subclass_id, main_class=request.user.userprofile.main_class)
     last_lessons = subclass.lesson_set.all().order_by("-date_added")[0:6]
     last_grades = request.user.userprofile.grade_set.filter(sub_class=subclass).order_by("-date_added")[0:6]
-    return render(request, template_name, context={'last_lessons': last_lessons, "last_grades": last_grades, "sub_class": subclass})
+    next_events = subclass.event_set.filter(date__gte=datetime.date.today()).order_by("date")[0:6]
+    return render(request, template_name, context={'last_lessons': last_lessons, "last_grades": last_grades, "next_events":next_events, "sub_class": subclass})
     
 
 @login_required
