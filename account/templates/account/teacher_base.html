@@ -48,6 +48,12 @@
 							<nav class="navbar navbar-light navbar-expand -white shadow mb-4 topbar static-top" style="background-color: black !important;color: white !important;">
 									<div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
 											<ul class="nav navbar-nav flex-nowrap ml-auto">
+                                                <a href="{% url 'account:teacher_notifications' %}" class="nav-item" style="padding-right:0.2rem;padding-top:1.5rem;color:#f9f9f9;" title="Notifications">
+                                                    <i class="fas fa-bell" style="float:left;padding-top:0.2rem"></i>
+                                                    {% if user.userprofile.recieved.all %}
+                                                    <div style="background-color:red; width:0.5rem; height:0.5rem;border-radius:100%;float:left;"></div>
+                                                    {% endif %}
+                                                </a>
 													<div class="d-none d-sm-block topbar-divider"></div>
 													<li class="nav-item dropdown no-arrow" role="presentation">
 															<div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">{{user.first_name}} {{user.last_name}}&nbsp;</span>{% if user.userprofile.profile_picture %}<img class="border rounded-circle img-profile" src="{{user.userprofile.profile_picture.url}}">{% else %}<img class="border rounded-circle img-profile" src="/media/extra/teachers.png">{% endif %}</a>

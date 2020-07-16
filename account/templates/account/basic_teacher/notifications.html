@@ -1,97 +1,96 @@
 {% extends "account/teacher_base.html" %}
 {% block body %}
-<div style="float:center;">
-    <div class="notifications-container">
     <center>
-    <h1 style="font-family:'Open Sans', sans-serif; font-size:40px; margin-top:1.3rem; border-bottom:0.1rem solid lightgrey; height:5.5rem;">Notifications</h1>
-    </center>
+    <div class="notifications-container" style="margin-left:0rem;">
+    <h1 style="font-family:'Open Sans', sans-serif; font-size:38px; padding-top:0.4rem; border-bottom:0.1rem solid lightgrey; height:4rem;">Notifications</h1>
     <center>
-    <div style="margin-top: 3rem; width:90%; height:30%; overflow-y:auto; overflow-x:hidden;">
+    <div style="margin-top: 2rem; width:90%; height:40rem; overflow-y:auto; overflow-x:hidden;">
     {% if not user.userprofile.recieved.all %}
     <h1 style="font-family:'Open Sans'; font-size:30px; color:grey; margin-top:25rem;">Looks like your notification inbox is empty :(</h1>
     {% endif %}
     {% for request in user.userprofile.recieved.all %}
         {% if request.subclass_name %}
-        <div style="width:80rem; height:15rem; background-color:white;box-shadow: 2px 2px 6px 0px lightgrey;border-radius:0.5rem;">
-        {% if request.sent_by.profile_picture %}
-        <img src="{{request.sent_by.profile_picture.url}}" class="notifications-profile-picture" />
-        {% else %}
-        <img src="/media/extra/user.png" class="notifications-profile-picture"/>
-        {% endif %}
-        <!-- <div class="notifications-network-circle">
-        <img src="/media/extra/network.png" class="notifications-network-img"/>
-        </div> -->
-        <h1 class="notifications-request-text"><b style="font-family: 'Muli'">{{request.sent_by.user.first_name}} {{request.sent_by.user.last_name}}</b> would like you to join {{request.sent_by.main_class.name}}</h1>
-        <h1 class="notifications-subject-name" style="border-left:0.2rem solid #{{request.subclass_color_code}}">&nbsp;&nbsp;{{request.subclass_name}}</h1>
+            <div style="width:90%; height:12rem; background-color:white;box-shadow: 2px 2px 6px 0px lightgrey;border-radius:0.5rem;margin-top:1rem;">
+            {% if request.sent_by.profile_picture %}
+                <img src="{{request.sent_by.profile_picture.url}}" style="width:5rem;height:5rem;border-radius:100%;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            {% else %}
+                <img src="/media/extra/user.png" style="width:5rem;height:5rem;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            {% endif %}
+            <div style="border-radius:100%; width:3rem;height:3rem;background-color:white;float:left;margin-top:4rem;margin-left:-2.7rem;box-shadow:1px 0.5px 2.5px lightgrey;">
+            <img src="/media/extra/network.png" style="width:2rem;height:2rem;margin-top: calc(0.5rem - 1.2vw);" />
+            </div>
+            <h1 class="title-notification"><b style="font-family: 'Muli'">{{request.sent_by.user.first_name}} {{request.sent_by.user.last_name}}</b> would like you to join {{request.sent_by.main_class.name}}</h1>
+            <h1 class="subtitle-notification" style="border-left:0.2rem solid #{{request.subclass_color_code}}">&nbsp;&nbsp;{{request.subclass_name}}</h1>
 
-        <a href="{% url 'account:teacher_handle_request' request.id 0%}">
-        <div class="notification-button">
-        <img src="/media/extra/cancel.png" style="width:2rem;height:2rem;margin-top:1rem;margin-left:0.2rem;" />
-        </div>
-        </a>
+            <a href="{% url 'account:teacher_handle_request' request.id 0%}">
+                <div class="notification-button" style='margin-left:0rem;float:right;height:2.5rem;width:2.5rem;margin-top:2rem;'>
+                <img src="/media/extra/cancel.png" style="width:1.3rem;height:1.3rem;margin-top: calc(0.5rem - 1.5vw);margin-left:0.2rem;" />
+                </div>
+            </a>
 
-        <a href="{% url 'account:teacher_handle_request' request.id 1%}">
-        <div class="notification-button">
-        <img src="/media/extra/tick.png" style="width:2rem;height:2rem;margin-top:1rem;margin-left:0.2rem;" />
-        </div>
-        </a>
+            <a href="{% url 'account:teacher_handle_request' request.id 1%}">
+            <div class="notification-button" style="margin-left:0rem;float:right;height:2.5rem;width:2.5rem;margin-top:2rem;">
+            <img src="/media/extra/tick.png" style="width:1.3rem;height:1.3rem;margin-top: calc(0.5rem - 1.5vw);margin-left:0.2rem;" />
+            </div>
+            </a>
+
         {% elif request.subclass %}
-        <div style="width:80rem; height:15rem; background-color:white;box-shadow: 2px 2px 6px 0px lightgrey;border-radius:0.5rem;">
-        {% if request.sent_by.profile_picture %}
-        <img src="{{request.sent_by.profile_picture.url}}" style="width:7rem;height:7rem;border-radius:100%;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            <div style="width:90%; height:12rem; background-color:white;box-shadow: 2px 2px 6px 0px lightgrey;border-radius:0.5rem;margin-top:1rem;">
+            {% if request.sent_by.profile_picture %}
+                <img src="{{request.sent_by.profile_picture.url}}" style="width:5rem;height:5rem;border-radius:100%;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            {% else %}
+                <img src="/media/extra/user.png" style="width:5rem;height:5rem;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            {% endif %}
+            <div style="border-radius:100%; width:3rem;height:3rem;background-color:white;float:left;margin-top:4rem;margin-left:-2.7rem;box-shadow:1px 0.5px 2.5px lightgrey;">
+            <img src="/media/extra/network.png" style="width:2rem;height:2rem;margin-top: calc(0.5rem - 1.2vw);" />
+            </div>
+            <h1 class="title-notification"><b style="font-family: 'Muli'">{{request.sent_by.user.first_name}} {{request.sent_by.user.last_name}}</b> would like you to join {{request.sent_by.main_class.name}}</h1>
+            <h1 class="subtitle-notification" style="text-align:left;font-family: 'Open Sans'; font-size:15px;color:grey;float:left;margin-top:5.5rem;margin-left:1rem;width:14rem;height:2rem;border-left:0.2rem solid #{{request.subclass.color_code}}">&nbsp;&nbsp;{{request.subclass.name}}</h1>
+
+            <a href="{% url 'account:teacher_handle_request' request.id 0%}">
+                <div class="notification-button" style='margin-left:0rem;float:right;height:2.5rem;width:2.5rem;margin-top:2rem;'>
+                <img src="/media/extra/cancel.png" style="width:1.3rem;height:1.3rem;margin-top: calc(0.5rem - 1.5vw);margin-left:0.2rem;" />
+                </div>
+            </a>
+
+            <a href="{% url 'account:teacher_handle_request' request.id 3%}">
+            <div class="notification-button" style="margin-left:0rem;float:right;height:2.5rem;width:2.5rem;margin-top:2rem;">
+            <img src="/media/extra/tick.png" style="width:1.3rem;height:1.3rem;margin-top: calc(0.5rem - 1.5vw);margin-left:0.2rem;" />
+            </div>
+            </a>
+
         {% else %}
-        <img src="/media/extra/user.png" style="width:7rem;height:7rem;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
-        {% endif %}
-        <div style="border-radius:100%; width:4.5rem;height:4.5rem;background-color:white;float:left;margin-top:4.5rem;margin-left:-3.5rem;box-shadow:1px 0.5px 2.5px lightgrey;">
-        <img src="/media/extra/network.png" style="width:3rem;height:3rem;margin-top:0.7rem;" />
-        </div>
-        <h1 style="font-family: 'Open Sans', sans-serif; font-size:20px;float:left;margin-top:2.5rem;margin-left:0.5rem;margin-bottom:-10rem;"><b style="font-family: 'Muli'">{{request.sent_by.user.first_name}} {{request.sent_by.user.last_name}}</b> would like you to join {{request.sent_by.main_class.name}}</h1>
-        <h1 style="text-align:left;font-family: 'Open Sans'; font-size:15px;color:grey;float:left;margin-top:5.5rem;margin-left:1rem;width:14rem;height:2rem;border-left:0.2rem solid #{{request.subclass.color_code}}">&nbsp;&nbsp;{{request.subclass.name}}</h1>
+            <div style="width:90%; height:12rem; background-color:white;box-shadow: 2px 2px 6px 0px lightgrey;border-radius:0.5rem;margin-top:1rem;">
+            {% if request.sent_by.profile_picture %}
+                <img src="{{request.sent_by.profile_picture.url}}" style="width:5rem;height:5rem;border-radius:100%;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            {% else %}
+                <img src="/media/extra/user.png" style="width:5rem;height:5rem;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
+            {% endif %}
+            <div style="border-radius:100%; width:3rem;height:3rem;background-color:white;float:left;margin-top:4rem;margin-left:-2.7rem;box-shadow:1px 0.5px 2.5px lightgrey;">
+            <img src="/media/extra/network.png" style="width:2rem;height:2rem;margin-top: calc(0.5rem - 1.2vw);" />
+            </div>
+            <h1 class="title-notification" ><b style="font-family: 'Muli'">{{request.sent_by.user.first_name}} {{request.sent_by.user.last_name}}</b> would like to join {{user.userprofile.main_class.name}}</h1>
+            <h1 class="subtitle-notification">&nbsp;&nbsp;{{request.sent_by.user_type}}</h1>
 
-        <a href="{% url 'account:teacher_handle_request' request.id 0%}">
-        <div class="notification-button">
-        <img src="/media/extra/cancel.png" style="width:2rem;height:2rem;margin-top:1rem;margin-left:0.2rem;" />
-        </div>
-        </a>
+            <a href="{% url 'account:teacher_handle_request' request.id 0%}">
+                <div class="notification-button" style='margin-left:0rem;float:right;height:2.5rem;width:2.5rem;margin-top:2rem;'>
+                <img src="/media/extra/cancel.png" style="width:1.3rem;height:1.3rem;margin-top: calc(0.5rem - 1.5vw);margin-left:0.2rem;" />
+                </div>
+            </a>
 
-        <a href="{% url 'account:teacher_handle_request' request.id 3%}">
-        <div class="notification-button">
-        <img src="/media/extra/tick.png" style="width:2rem;height:2rem;margin-top:1rem;margin-left:0.2rem;" />
-        </div>
-        </a>
-        {% else %}
-        <div style="width:80rem; height:15rem; background-color:white;box-shadow: 2px 2px 6px 0px lightgrey;border-radius:0.5rem;">
-        {% if user.userprofile.photo %}
-        <img src="{{request.sent_by.profile_picture.url}}" style="width:7rem;height:7rem;border-radius:100%;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
-        {% else %}
-        <img src="/media/extra/user.png" style="width:7rem;height:7rem;float:left;margin-left:1.5rem;margin-top:1.5rem;" />
-        {% endif %}
-        <div style="border-radius:100%; width:4.5rem;height:4.5rem;background-color:white;float:left;margin-top:4.5rem;margin-left:-3.5rem;box-shadow:1px 0.5px 2.5px lightgrey;">
-        <img src="/media/extra/network.png" style="width:3rem;height:3rem;margin-top:0.7rem;" />
-        </div>
-        <h1 style="font-family: 'Open Sans', sans-serif; font-size:20px;float:left;margin-top:2.5rem;margin-left:0.5rem;margin-bottom:-10rem;"><b style="font-family: 'Muli'">{{request.sent_by.user.first_name}} {{request.sent_by.user.last_name}}</b> would like to join {{user.userprofile.main_class.name}}</h1>
-        <h1 style="text-align:left;font-family: 'Open Sans'; font-size:15px;color:grey;float:left;margin-top:5.5rem;margin-left:1rem;width:14rem;height:2rem;">&nbsp;&nbsp;{{request.sent_by.user_type}}</h1>
-
-        <a href="{% url 'account:teacher_handle_request' request.id 0%}">
-        <div class="notification-button">
-        <img src="/media/extra/cancel.png" style="width:2rem;height:2rem;margin-top:1rem;margin-left:0.2rem;" />
-        </div>
-        </a>
-
-        <a href="{% url 'account:teacher_handle_request' request.id 2%}">
-        <div class="notification-button">
-        <img src="/media/extra/tick.png" style="width:2rem;height:2rem;margin-top:1rem;margin-left:0.2rem;" />
-        </div>
-        </a>
+            <a href="{% url 'account:teacher_handle_request' request.id 2%}">
+            <div class="notification-button" style="margin-left:0rem;float:right;height:2.5rem;width:2.5rem;margin-top:2rem;">
+            <img src="/media/extra/tick.png" style="width:1.3rem;height:1.3rem;margin-top: calc(0.5rem - 1.5vw);margin-left:0.2rem;" />
+            </div>
+            </a>
 
         {% endif %}
 
 
         </div>
-        <br>
     {% endfor %}
     </div>
     </center>
     </div>
-</div>
+    </center>
 {% endblock %}
