@@ -2,16 +2,24 @@
 <html>
 <head>
 	{% load static %}
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../../static/account/css/style.css" />
-        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=0.2">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=0.2"> -->
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/account/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../static/account/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/account/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-<head>
+</head>
 
-<body>
+<!-- <body>
     <div class="welcome" style="height:80rem;">
         <center>
         <img width="80%"src="/media/extra/steach_prealpha.jpg" />
@@ -48,6 +56,51 @@
         </div>
         <br>
     </div>
+</body> -->
+
+<body style="background: url(../static/account/css/background1.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+	            <div class="col">
+	                <div class="card shadow-lg o-hidden border-0 my-5" style="border-radius: 25px;background-color: black;">
+	                    <div class="card-body p-0">
+	                        <div class="row">
+	                            <div class="col">
+	                                <div class="pulse animated p-5 col-md-14">
+	                                    <div class="text-center"><img class="img-fluid" src="../static/account/images/Steach_logo.png" style="width: 800px;">
+	                                        <h1 class="text-center text-white mb-4" style="font-family: Raleway, sans-serif;">Welcome to the future of Education.</h1>
+	                                    </div>
+	                                    <form method="POST" style="margin-bottom: 30px;" class="user text-center">
+																				{% csrf_token %}
+																					<input class="form-control form-control-user mx-auto" type="text" id="id_username" placeholder="Username" name="username" style="background-color: rgba(255,255,255,0);max-width: 288px;max-height: 42px;border: none;text-align: center;margin-bottom: 5px;border-bottom: 3px solid white;"/>
+																					<input class="form-control form-control-user mx-auto" type="password" id="id_password" placeholder="Password" name="password" style="text-align: center;border: none;background-color: rgba(255,255,255,0);max-width: 288px;margin-bottom: 5px;border-bottom: 3px solid white;max-height: 42px;">
+																					<button  type="submit" class="btn btn-sm animated-button victoria-one mx-auto btn-group" style="font-size:20px; color: white;">Login</button>
+																					</form>
+
+																					{% for x, e in form.errors.items %}
+																						{% for error in e%}
+																							<h1 style="color:red;font-size:20px;font-family:'Muli';width:50rem;position:absolute;margin-top:10rem;margin-left:25rem;">{{ error }}</h1>
+																						{% endfor %}
+																					{% endfor %}
+																			</form>
+	                                   <div class="row mb-5">
+	                                        <div class="col col-md-8 mx-auto btn-group" style="/*font-align: center;*/"><a class="btn btn-sm animated-button victoria-one" href="register.html">I'm a teacher</a>
+	                                            <h6 class="text-center text-white" style="font-family: Raleway, sans-serif;margin-left: 10px;margin-right: 10px;margin-top: 20px;">New? Register now</h6><a class="btn btn-sm animated-button victoria-one" href="register.html">I'm a student&nbsp;</a></div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <script src="../static/account/js/jquery.min.js"></script>
+	    <script src="../static/account/js/bootstrap.min.js"></script>
+	    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	    <script src="../static/account/js/script.min.js"></script>
 </body>
 
 </html>
