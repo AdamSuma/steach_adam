@@ -1,8 +1,8 @@
 {% extends 'account/teacher_base.html' %}
 
 {% block body %}
-<div style="margin-left:33rem;float:left;overflow:hidden;">
-    <div class="lesson-maindiv" style="border-left: 0.5rem solid lightgrey;background-color:#F4F4F4;height:85rem;">
+<div style="margin-left:1.5rem;float:left;overflow:hidden;">
+    <div class="mainclass_home-style">
         <h1 class="lesson-title-detail" style="float:left;">{{user.userprofile.main_class.name}}</h1>
             <h1 class="lesson-title-detail" style="float:left;color:grey; font-size:20px;margin-top:2.8rem;">Class ID: {{user.userprofile.main_class.id}}</h1>
         <a href="{% url 'account:edit_mainclass' %}" style="text-decoration:none;color:black;">
@@ -27,8 +27,8 @@
                     <h1 style="font-size:50px;font-family:'Muli', sans-serif; color:#B5B5B5; float:left;margin-top:4rem;margin-left:2rem;">ADD NEW SUBJECT</h1>
                 </div>
                 <div style="height:0.1rem; width:140rem;float:left;margin-bottom:-0.1rem;"></div>
-            </a>  
-            
+            </a>
+
             {% for subclass in user.userprofile.main_class.subclass_set.all %}
                 <a href="#" style="color:black;">
                     <div class="list-card-mainclass" style="border-bottom: 0.1rem solid #DCDCDC; width:95%; margin-left:2rem;">
@@ -40,7 +40,7 @@
                         </button>
                     </div>
                     <div style="height:0.1rem; width:140rem;float:left;margin-bottom:-0.1rem;"></div>
-                </a>  
+                </a>
             {% endfor %}
             <br>
         </div>
@@ -48,7 +48,7 @@
             <h1 style="transform: rotate(+20deg);font-size:31px;font-family:'Open Sans', sans-serif; color:#B5B5B5; float:left;margin-top:30rem;margin-left:2rem;">New features being developed :)</h1>
         </div>
         <div style="float:right; background-color:#D2D2D2; margin-top:1rem; margin-right:0.5rem;height:100%; width:0.1rem;"></div>
-        
+
         <br>
     </div>
 </div>
